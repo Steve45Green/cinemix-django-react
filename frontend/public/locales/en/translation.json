@@ -1,0 +1,31 @@
+{
+  "header": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "greeting": "Hello, {{name}}!"
+  },
+  "loginPage": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "noAccount": "Don't have an account?",
+    "registerHere": "Register here"
+  },
+  "registerPage": {
+    "title": "Create Account",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Register",
+    "hasAccount": "Already have an account?",
+    "loginHere": "Login here",
+    "passwordMismatch": "Passwords do not match."
+  },
+  "homePage": {
+    "popular": "Most Popular",
+    "recent": "Recent Releases"
+  }
+}

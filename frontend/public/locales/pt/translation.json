@@ -1,0 +1,31 @@
+{
+  "header": {
+    "login": "Login",
+    "register": "Registar",
+    "logout": "Logout",
+    "greeting": "Olá, {{name}}!"
+  },
+  "loginPage": {
+    "title": "Login",
+    "username": "Nome de utilizador",
+    "password": "Password",
+    "submit": "Entrar",
+    "noAccount": "Não tem uma conta?",
+    "registerHere": "Registe-se aqui"
+  },
+  "registerPage": {
+    "title": "Criar Conta",
+    "email": "Email",
+    "username": "Nome de utilizador",
+    "password": "Password",
+    "confirmPassword": "Confirmar Password",
+    "submit": "Registar",
+    "hasAccount": "Já tem uma conta?",
+    "loginHere": "Faça login aqui",
+    "passwordMismatch": "As passwords não coincidem."
+  },
+  "homePage": {
+    "popular": "Mais Populares",
+    "recent": "Lançamentos Recentes"
+  }
+}

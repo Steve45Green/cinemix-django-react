@@ -1,0 +1,62 @@
+name: website-cinemix-dev
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-cinemix}
+      POSTGRES_USER: ${POSTGRES_USER:-cinemix}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cinemix}
+      TZ: Europe/Lisbon
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-cinemix} -d ${POSTGRES_DB:-cinemix}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    env_file: .env
+    working_dir: /app
+    environment:
+      DJANGO_SETTINGS_MODULE: backend.config.settings
+    volumes:
+      - .:/app # Montar a raiz para que o hot-reload funcione com a estrutura atual
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8765:8000"
+    command: >
+      sh -c "
+        echo 'Aguardando a base de dados...' &&
+        python manage.py migrate --no-input &&
+        echo 'Iniciando o servidor Django...' &&
+        python manage.py runserver 0.0.0.0:8000
+      "
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: dev
+    env_file: .env
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    # CORREÇÃO: Restaurar o comando original para iniciar o servidor Vite
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - backend
+    ports:
+      - "${FRONTEND_PORT:-5173}:5173"
+
+volumes:
+  db_data:

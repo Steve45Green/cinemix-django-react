@@ -1,0 +1,14 @@
+# Evita que estes ficheiros e pastas sejam copiados para o contexto de build do Docker.
+
+# Dependências locais, que não devem ser usadas dentro do container.
+node_modules
+
+# Ficheiros de log do npm
+npm-debug.log*
+
+# Ficheiros de build locais
+dist
+.vite
+
+# Ficheiros de ambiente local
+.env.local
