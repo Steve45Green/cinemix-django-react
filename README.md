@@ -1,4 +1,3 @@
-
 # 🎬 Website Cinemix
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
@@ -23,6 +22,7 @@
 - [🧪 Testes](#-testes)
 - [🛣️ Roadmap](#️-roadmap)
 - [🤝 Contribuir](#-contribuir)
+- [⚠️ Aviso Legal e Académico](#-aviso-legal-e-académico)
 - [📄 Licença](#-licença)
 - [👤 Autores](#-autores)
 
@@ -184,6 +184,15 @@ docker compose exec frontend npm test
 3. `git commit -m "feat: descrição"`
 4. `git push origin feat/nova-feature`
 5. Abrir Pull Request
+
+---
+
+## ⚠️ Aviso Legal e Académico
+
+Este projeto foi desenvolvido estritamente para **fins educativos e académicos**.
+
+*   **Dados:** Todos os dados de filmes apresentados (títulos, sinopses, imagens) pertencem aos seus respetivos detentores de direitos (IMDb/Amazon) e foram utilizados apenas para demonstrar competências técnicas de Web Scraping.
+*   **Uso:** Este código não se destina a uso comercial nem a competir com quaisquer serviços existentes.
 
 ---
 
